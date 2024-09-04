@@ -1,0 +1,29 @@
+groups:
+  - name: prometheus_cpu_alerts
+    rules:
+      - alert: PrometheusCPUUsageInfo
+        expr: (rate(process_cpu_seconds_total[1m]) * 100) > 0
+        for: 5m
+        labels:
+          severity: info
+        annotations:
+          summary: "Moderate CPU usage by Prometheus"
+          description: "Prometheus CPU usage is above 0% for more than 5 minutes."
+
+      - alert: PrometheusCPUUsageWarning
+        expr: (rate(process_cpu_seconds_total[1m]) * 100) > 50
+        for: 3m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High CPU usage by Prometheus"
+          description: "Prometheus CPU usage is above 50% for more than 3 minutes."
+
+      - alert: PrometheusCPUUsageCritical
+        expr: (rate(process_cpu_seconds_total[1m]) * 100) > 80
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Critical CPU usage by Prometheus"
+          description: "Prometheus CPU usage is above 80% for more than 1 minute."
