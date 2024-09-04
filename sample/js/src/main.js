@@ -1,6 +1,6 @@
 import express from 'express';
 import client from 'prom-client';
-
+import 'dotenv/config';
 const app = express();
 const register = new client.Registry();
 client.collectDefaultMetrics({ register });

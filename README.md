@@ -41,4 +41,4 @@ you can show all docker prometheus
 - [x] prometheus + nginx (docker)
 - [x] grafana (docker)
 - [x] sample node js
-- [ ] alert manager send 
+- [ ] alert manager send email and telegram
